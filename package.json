@@ -1,5 +1,5 @@
 {
-  "name": "@ilo-org/designsystem",
+  "name": "designsystem",
   "version": "0.0.1",
   "description": "A design system for the International Labour Organization",
   "license": "Apache-2.0",
@@ -10,8 +10,8 @@
   },
   "postinstall": "manypkg check",
   "scripts": {
-    "build:react": "turbo run build --filter=@ilo-org/react...",
-    "build:twig": "turbo run build --filter=@ilo-org/twig...",
+    "build:react": "turbo run build --filter=react...",
+    "build:twig": "turbo run build --filter=twig...",
     "check:types": "pnpm turbo run check",
     "clean:deps": "rm -rf pnpm-lock.yaml node_modules && pnpm -r exec rm -rf node_modules",
     "clean:build": "pnpm -r exec rm -rf build lib dist .turbo storybook-static es svg umd && rm -rf packages/icons/scss",
