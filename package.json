@@ -1,0 +1,34 @@
+{
+  "name": "@ilo-org/designsystem",
+  "version": "0.0.1",
+  "description": "A design system for the International Labour Organization",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "packageManager": "pnpm@7.25.0",
+  "engines": {
+    "pnpm": "7.25.0"
+  },
+  "postinstall": "manypkg check",
+  "scripts": {
+    "build:react": "turbo run build --filter=@ilo-org/react...",
+    "build:twig": "turbo run build --filter=@ilo-org/twig...",
+    "check:types": "pnpm turbo run check",
+    "clean:deps": "rm -rf pnpm-lock.yaml node_modules && pnpm -r exec rm -rf node_modules",
+    "clean:build": "pnpm -r exec rm -rf build lib dist .turbo storybook-static es svg umd && rm -rf packages/icons/scss",
+    "clean": "npm-run-all -p clean:*"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@changesets/cli": "^2.25.0",
+    "@ilo-org/eslint-config": "0.0.1",
+    "@ilo-org/prettier-config": "0.0.1",
+    "@ilo-org/typescript-config": "0.0.1",
+    "eslint": "^8.11.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.0",
+    "turbo": "^1.2.9",
+    "typescript": "4.9.3"
+  }
+}
