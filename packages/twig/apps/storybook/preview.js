@@ -1,0 +1,31 @@
+import { configure, initJsBehaviors } from "@wingsuit-designsystem/storybook";
+import { addParameters } from "@storybook/react";
+
+const namespaces = require("../../src/namespaces");
+
+initJsBehaviors("Drupal");
+
+addParameters({
+  viewMode: "docs",
+  previewTabs: {
+    "storybook/docs/panel": {
+      index: 1,
+      title: "Documentation",
+    },
+    canvas: { title: "Canvas", hidden: false },
+  },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      locales: "en-US",
+    },
+  },
+});
+
+configure(
+  module,
+  [require.context("wspatterns", true, /\.stories(\.jsx|\.js|\.mdx)$/)],
+  require.context("./config", false, /\.json|\.ya?ml$/),
+  require.context("wspatterns", true, /\.twig$/),
+  namespaces
+);
